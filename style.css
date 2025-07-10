@@ -1,0 +1,67 @@
+/* Custom styles for Inter font and smooth scrolling */
+body {
+    font-family: 'Inter', sans-serif;
+    scroll-behavior: smooth;
+    background-color: #f8fafc; /* Light gray background */
+    color: #334155; /* Darker gray text */
+}
+
+/* Custom scrollbar for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #60a5fa;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #3b82f6;
+}
+
+/* Hero section background animation */
+.hero-bg {
+    background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+    position: relative;
+    overflow: hidden;
+}
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at top left, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: moveGradient 15s infinite alternate;
+}
+@keyframes moveGradient {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50%, 50%); }
+}
+
+/* Project card hover effect */
+.project-card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input focus effect */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+/* Ensure full height for hero section on smaller screens */
+@media (max-width: 768px) {
+    .hero-bg {
+        min-height: 100vh; /* Ensure it takes full viewport height */
+    }
+}
